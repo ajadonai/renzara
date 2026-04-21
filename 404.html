@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page not found · Renzara Creative</title>
+<meta name="description" content="The page you're looking for doesn't exist. Head back to Renzara Creative's homepage.">
+<meta name="robots" content="noindex">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,800;1,700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --lime:   #d4f050;
+    --forest: #1a3328;
+    --beige:  #ede8df;
+    --white:  #fefefe;
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body: 'Jost', 'Helvetica Neue', sans-serif;
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: var(--font-body);
+    background: var(--lime);
+    color: var(--forest);
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  a { color: inherit; text-decoration: none; }
+
+  .page {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 60px;
+    max-width: 1100px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .tag {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--forest);
+    margin-bottom: 28px;
+  }
+  .tag::before {
+    content: '';
+    width: 28px; height: 1.5px;
+    background: var(--forest);
+  }
+
+  .big-num {
+    font-family: var(--font-display);
+    font-size: clamp(6rem, 18vw, 14rem);
+    font-weight: 800;
+    line-height: 0.85;
+    letter-spacing: -0.06em;
+    color: var(--forest);
+    margin-bottom: 28px;
+  }
+  .big-num em {
+    font-style: italic;
+    font-weight: 700;
+  }
+
+  h1 {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 3vw, 2.4rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--forest);
+    margin-bottom: 18px;
+    max-width: 620px;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--forest);
+    opacity: 0.72;
+    font-weight: 300;
+    max-width: 500px;
+    margin-bottom: 40px;
+  }
+
+  .ctas {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .btn {
+    background: var(--forest);
+    color: var(--white);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 16px 30px;
+    border-radius: 100px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 18px rgba(26, 51, 40, 0.22);
+    display: inline-flex;
+    align-items: center;
+  }
+  .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(26, 51, 40, 0.32); }
+  .btn .arrow {
+    width: 14px; height: 14px;
+    margin-left: 6px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: transform 0.25s var(--ease);
+  }
+  .btn:hover .arrow { transform: translateX(3px); }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--forest);
+    border: 1.5px solid var(--forest);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 14.5px 28px;
+    border-radius: 100px;
+    transition: background 0.2s, color 0.2s;
+  }
+  .btn-outline:hover { background: var(--forest); color: var(--white); }
+
+  .footer-strip {
+    padding: 24px 60px;
+    border-top: 1px solid rgba(26, 51, 40, 0.15);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.7rem;
+    color: var(--forest);
+    opacity: 0.55;
+    letter-spacing: 0.08em;
+  }
+  .footer-strip a {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+  }
+
+  @media (max-width: 820px) {
+    .page { padding: 48px 24px; }
+    .footer-strip { padding: 20px 24px; flex-direction: column; gap: 6px; text-align: center; }
+    .ctas { flex-direction: column; align-items: stretch; width: 100%; max-width: 320px; }
+    .ctas a { text-align: center; justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="page">
+    <span class="tag">Error · Index 404</span>
+
+    <div class="big-num">4<em>0</em>4</div>
+
+    <h1>This page has gone off-script.</h1>
+    <p>The URL you're looking for doesn't exist on our site — or the briefing has moved. Let's get you back to something worth reading.</p>
+
+    <div class="ctas">
+      <a href="/" class="btn">Back to the studio
+        <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M5 12h14"/><path d="M13 6l6 6-6 6"/>
+        </svg>
+      </a>
+      <a href="/#contact" class="btn-outline">Start a brief</a>
+    </div>
+  </div>
+
+  <div class="footer-strip">
+    <span>Renzara Creative · London</span>
+    <a href="mailto:Hello@renzaracreative.com">Email us</a>
+  </div>
+
+</body>
+</html>
