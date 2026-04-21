@@ -1492,6 +1492,35 @@
     border-color: var(--forest);
   }
 
+  /* Select dropdown — hidden on desktop, shown on medium/small screens */
+  .letter-select {
+    display: none;
+    width: 100%;
+    background: var(--cream);
+    border: 1.5px solid transparent;
+    border-radius: 10px;
+    padding: 12px 36px 12px 14px;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--forest);
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%231a3328' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    transition: border-color 0.2s, background-color 0.2s;
+  }
+  .letter-select:focus {
+    border-color: var(--forest);
+    background-color: var(--white);
+  }
+  .letter-select:invalid {
+    color: rgba(26, 51, 40, 0.4);
+  }
+
   /* Textarea for additional details */
   .letter-textarea-label {
     font-family: var(--font-display);
@@ -1734,6 +1763,10 @@
     .contact-grid { grid-template-columns: 1fr; gap: 32px; flex: none; }
     .contact-details { margin-top: 0; flex-direction: row; flex-wrap: wrap; gap: 32px; }
     .contact-details > div { min-width: 160px; }
+
+    /* Swap pills for dropdown on tablet and below */
+    .letter-pills { display: none; }
+    .letter-select { display: block; }
   }
 
   @media (max-width: 820px) {
@@ -2349,6 +2382,14 @@
           <button type="button" class="letter-pill" data-value="Copywriting & media">Copywriting &amp; media</button>
           <button type="button" class="letter-pill" data-value="Something else">Something else</button>
         </div>
+        <select class="letter-select" id="letterSelect" aria-label="What you're reaching out about">
+          <option value="" disabled selected>Select an option…</option>
+          <option value="A campaign">A campaign</option>
+          <option value="Talent booking">Talent booking</option>
+          <option value="Brand work">Brand work</option>
+          <option value="Copywriting & media">Copywriting &amp; media</option>
+          <option value="Something else">Something else</option>
+        </select>
         <input type="hidden" name="interest" id="interestField">
 
         <div class="letter-textarea-label">A few more details —</div>
@@ -2511,16 +2552,28 @@
   setInterval(updateLiveTime, 30000);
 
   // ========== CONTACT FORM ==========
-  // Pill selection
+  // Pill selection (desktop) and select dropdown (mobile/tablet) both sync to hidden 'interest' field
   const letterPills = document.querySelectorAll('#letterPills .letter-pill');
+  const letterSelect = document.getElementById('letterSelect');
   const interestField = document.getElementById('interestField');
+
   letterPills.forEach(pill => {
     pill.addEventListener('click', () => {
       letterPills.forEach(p => p.classList.remove('active'));
       pill.classList.add('active');
       interestField.value = pill.dataset.value;
+      if (letterSelect) letterSelect.value = pill.dataset.value;
     });
   });
+
+  if (letterSelect) {
+    letterSelect.addEventListener('change', () => {
+      interestField.value = letterSelect.value;
+      letterPills.forEach(p => {
+        p.classList.toggle('active', p.dataset.value === letterSelect.value);
+      });
+    });
+  }
 
   // Live "Open now" vs "Back tomorrow" status
   function updateContactStatus() {
@@ -2582,6 +2635,7 @@
         form.reset();
         letterPills.forEach(p => p.classList.remove('active'));
         interestField.value = '';
+        if (letterSelect) letterSelect.value = '';
       } else {
         error.classList.add('show');
       }
