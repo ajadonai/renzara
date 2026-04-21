@@ -1826,48 +1826,47 @@
 
   .footer-social {
     display: flex;
-    flex-direction: column;
     gap: 10px;
   }
-  .footer-social-link {
-    font-family: var(--font-display);
-    font-size: 0.88rem;
-    color: var(--white);
-    font-weight: 500;
-    display: flex;
-    justify-content: space-between;
+  .footer-social-icon {
+    width: 42px;
+    height: 42px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 50%;
+    display: inline-flex;
     align-items: center;
-    gap: 16px;
-    padding: 2px 0;
-    position: relative;
-    transition: color 0.2s;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.65);
+    transition: color 0.25s var(--ease), border-color 0.25s var(--ease), background 0.25s var(--ease), transform 0.25s var(--ease);
   }
-  .footer-social-link:hover { color: var(--lime); }
-  .footer-social-link .handle {
-    color: rgba(255, 255, 255, 0.4);
-    font-size: 0.7rem;
-    font-family: var(--font-body);
-    letter-spacing: 0.02em;
-    font-weight: 400;
-    transition: color 0.2s;
+  .footer-social-icon svg {
+    width: 16px;
+    height: 16px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
   }
-  .footer-social-link:hover .handle { color: rgba(212, 240, 80, 0.6); }
+  .footer-social-icon:hover {
+    color: var(--forest);
+    background: var(--lime);
+    border-color: var(--lime);
+    transform: translateY(-2px);
+  }
 
-  .footer-colophon {
-    font-size: 0.82rem;
-    color: rgba(255, 255, 255, 0.55);
-    line-height: 1.85;
-    font-weight: 300;
-    max-width: 320px;
-  }
-  .footer-colophon .italic {
+  .footer-mission {
     font-family: var(--font-display);
-    font-style: italic;
-    color: rgba(255, 255, 255, 0.75);
-  }
-  .footer-colophon .bold {
-    color: rgba(255, 255, 255, 0.75);
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.65);
+    line-height: 1.55;
     font-weight: 400;
+    max-width: 340px;
+    margin: 0;
+  }
+  .footer-mission .italic {
+    font-style: italic;
+    color: var(--white);
   }
 
   /* Bottom bar */
@@ -2759,24 +2758,30 @@
       <div>
         <div class="footer-col-label">Follow</div>
         <div class="footer-social">
-          <a href="https://instagram.com/renzaracreative" target="_blank" rel="noopener" class="footer-social-link">
-            Instagram <span class="handle">@renzaracreative</span>
+          <a href="https://instagram.com/renzaracreative" target="_blank" rel="noopener" class="footer-social-icon" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="5"/>
+              <circle cx="12" cy="12" r="4"/>
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+            </svg>
           </a>
-          <a href="https://linkedin.com/company/renzara-creative" target="_blank" rel="noopener" class="footer-social-link">
-            LinkedIn <span class="handle">/renzara-creative</span>
+          <a href="https://linkedin.com/company/renzara-creative" target="_blank" rel="noopener" class="footer-social-icon" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z" fill="currentColor" stroke="none"/>
+            </svg>
           </a>
-          <a href="https://twitter.com/renzaracreative" target="_blank" rel="noopener" class="footer-social-link">
-            X / Twitter <span class="handle">@renzaracreative</span>
+          <a href="https://twitter.com/renzaracreative" target="_blank" rel="noopener" class="footer-social-icon" aria-label="X (Twitter)">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="currentColor" stroke="none"/>
+            </svg>
           </a>
         </div>
       </div>
 
       <div class="footer-colophon-col">
-        <div class="footer-col-label">Colophon</div>
-        <p class="footer-colophon">
-          Typeset in <span class="italic">Playfair Display</span> &amp; <span class="bold">Jost</span>.<br>
-          Built in London, 2025.<br>
-          Replies within 1–2 business days.
+        <div class="footer-col-label">The mission</div>
+        <p class="footer-mission">
+          We build brands by <span class="italic">building people</span> — pairing the UK and Africa's most engaging voices with the brands that should be working with them.
         </p>
       </div>
 
